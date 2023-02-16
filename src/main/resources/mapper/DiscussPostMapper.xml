@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.nowcoder.dao.DiscussPostMapper">
+
+<!--    List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit);-->
+    <select id="selectDiscussPosts" resultType="com.spring.nowcoder.bean.DiscussPost">
+        select * from discuss_post where status != 2
+        <if test="userId != 0 and userId != null"  >
+            and user_id = #{userId}
+        </if>
+        order by type desc, create_time desc
+        limit #{offset}, #{limit}
+    </select>
+
+
+<!--    int selectDissussPostRows(@Param("userId") int userId);-->
+    <select id="selectDissussPostRows" resultType="java.lang.Integer">
+        select count(*) from discuss_post where status != 2
+        <if test="userId != 0">
+            and user_id = #{userId}
+        </if>
+    </select>
+</mapper>

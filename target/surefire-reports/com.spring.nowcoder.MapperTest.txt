@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.spring.nowcoder.MapperTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.821 s <<< FAILURE! - in com.spring.nowcoder.MapperTest
+testSelectPost  Time elapsed: 0.225 s  <<< ERROR!
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.binding.BindingException: Parameter 'offset' not found. Available parameters are [userId, param1]
+	at com.spring.nowcoder.MapperTest.testSelectPost(MapperTest.java:24)
+Caused by: org.apache.ibatis.binding.BindingException: Parameter 'offset' not found. Available parameters are [userId, param1]
+	at com.spring.nowcoder.MapperTest.testSelectPost(MapperTest.java:24)
+
